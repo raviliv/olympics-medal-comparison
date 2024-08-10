@@ -48,23 +48,34 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
+        <div class="container">
+        <h1>Olympics Medal Count Comparison: 2020 vs 2024</h1>
+        <p class="lead">
+            This webpage provides a detailed comparison of Olympic medal counts for various countries, contrasting the results from the 2020 Tokyo Olympics and the 2024 Paris Olympics. Below, you will find a comprehensive table that breaks down the number of gold, silver, and bronze medals each country won during these Olympic Games. Additionally, a dynamic bar chart offers a visual comparison of these counts, highlighting trends and changes in performance across the two Olympics. Explore the data to see how nations fared and which countries improved or regressed over the four-year period.
+        </p>
+
         <h1>Olympics Medal Count Comparison: 2020 vs 2024</h1>
         
         <!-- Medal Table -->
         <table id="medalTable" class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Country</th>
-                    <th>Gold 2020</th>
-                    <th>Silver 2020</th>
-                    <th>Bronze 2020</th>
-                    <th>Total 2020</th>
-                    <th>Gold 2024</th>
-                    <th>Silver 2024</th>
-                    <th>Bronze 2024</th>
-                    <th>Total 2024</th>
+                    <th rowspan="2">Country</th>
+                    <th colspan="4">2020 Olympics</th>
+                    <th colspan="4">2024 Olympics</th>
+                </tr>
+                <tr>
+                    <th>Gold</th>
+                    <th>Silver</th>
+                    <th>Bronze</th>
+                    <th>Total</th>
+                    <th>Gold</th>
+                    <th>Silver</th>
+                    <th>Bronze</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
