@@ -21,6 +21,7 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+            color: #333;
         }
         h1, h2 {
             text-align: center;
@@ -46,6 +47,15 @@
         .chart-container {
             margin: 40px 0;
         }
+        .summary {
+            font-size: 18px; /* Slightly larger font for readability */
+            margin-bottom: 20px;
+            text-align: justify; /* Ensures the text is evenly justified */
+            line-height: 1.6; /* Improves line spacing for better readability */
+            padding: 0 15px; /* Adds padding on both sides */
+            border-left: 5px solid #4CAF50; /* Adds a stylish left border */
+            background-color: #e9ecef; /* Light grey background for emphasis */
+        }
     </style>
 </head>
 
@@ -54,11 +64,9 @@
         <div class="container">
         <h1>Olympics Medal Count Comparison: 2020 vs 2024</h1>
         <p class="lead">
-            This webpage provides a detailed comparison of Olympic medal counts for various countries, contrasting the results from the 2020 Tokyo Olympics and the 2024 Paris Olympics. Below, you will find a comprehensive table that breaks down the number of gold, silver, and bronze medals each country won during these Olympic Games. Additionally, a dynamic bar chart offers a visual comparison of these counts, highlighting trends and changes in performance across the two Olympics. Explore the data to see how nations fared and which countries improved or regressed over the four-year period.
+            See a detailed comparison of Olympic medal counts for various countries, contrasting the results from the 2020 Tokyo Olympics and the 2024 Paris Olympics. 
         </p>
-
-        <h1>Olympics Medal Count Comparison: 2020 vs 2024</h1>
-        
+ 
         <!-- Medal Table -->
         <table id="medalTable" class="table table-bordered">
             <thead>
@@ -86,10 +94,10 @@
                     <td>41</td>
                     <td>33</td>
                     <td>113</td>
-                    <td>37</td>
+                    <td>40</td>
+                    <td>44</td>
                     <td>42</td>
-                    <td>42</td>
-                    <td>121</td>
+                    <td>126</td>
                 </tr>
                 <tr>
                     <td>China</td>
@@ -97,10 +105,10 @@
                     <td>32</td>
                     <td>18</td>
                     <td>88</td>
-                    <td>38</td>
+                    <td>40</td>
                     <td>27</td>
                     <td>24</td>
-                    <td>89</td>
+                    <td>91</td>
                 </tr>
                 <!-- Add more countries as needed -->
             </tbody>
@@ -143,21 +151,21 @@
                     },
                     {
                         label: 'Gold 2024',
-                        data: [37, 38], // Add more data for additional countries
+                        data: [40, 40], // Add more data for additional countries
                         backgroundColor: 'rgba(255, 215, 0, 0.3)',
                         borderColor: 'rgba(255, 215, 0, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Silver 2024',
-                        data: [42, 21], // Add more data for additional countries
+                        data: [44, 27], // Add more data for additional countries
                         backgroundColor: 'rgba(192, 192, 192, 0.3)',
                         borderColor: 'rgba(192, 192, 192, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Bronze 2024',
-                        data: [42, 24], // Add more data for additional countries
+                        data: [22, 24], // Add more data for additional countries
                         backgroundColor: 'rgba(205, 127, 50, 0.3)',
                         borderColor: 'rgba(205, 127, 50, 1)',
                         borderWidth: 1
