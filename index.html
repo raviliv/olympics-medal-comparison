@@ -56,15 +56,23 @@
             border-left: 5px solid #4CAF50; /* Adds a stylish left border */
             background-color: #e9ecef; /* Light grey background for emphasis */
         }
+        .flashing-text {
+            animation: flash 1s linear infinite;
+        }
+        @keyframes flash {
+            0%, 100% { color: black; }
+            50% { color: red; }
+        }      
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="container">
-        <h1>Olympics Medal Count Comparison: 2020 vs 2024</h1>
+        <h1 class="flashing-text">Olympics Medal Count Comparison: 2020 vs 2024</h1>
         <p class="summary">
-            See a detailed comparison of Olympic medal counts for various countries, contrasting the results from the 2020 Tokyo Olympics and the 2024 Paris Olympics. Explore the data to see how nations fared and which countries improved or regressed over the four-year period(Coming Shortly...).
+            See a detailed comparison of Olympic medal counts for various countries, contrasting the results from the 2020 Tokyo Olympics and the 2024 Paris Olympics.Explore the data to see how nations fared and which countries improved or regressed over the four-year period 
+            <span class="flashing-text">(Coming Shortly...)</span>
         </p>
  
         <!-- Medal Table -->
