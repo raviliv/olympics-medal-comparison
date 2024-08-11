@@ -121,66 +121,112 @@
         </div>
     </div>
 
-    <script>
-        const ctx = document.getElementById('medalChart').getContext('2d');
-        const medalChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['USA', 'China'], // Add more countries as needed
-                datasets: [
-                    {
-                        label: 'Gold 2020',
-                        data: [39, 38], // Add more data for additional countries
-                        backgroundColor: 'rgba(255, 215, 0, 0.7)',
-                        borderColor: 'rgba(255, 215, 0, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Silver 2020',
-                        data: [41, 32], // Add more data for additional countries
-                        backgroundColor: 'rgba(192, 192, 192, 0.7)',
-                        borderColor: 'rgba(192, 192, 192, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Bronze 2020',
-                        data: [33, 18], // Add more data for additional countries
-                        backgroundColor: 'rgba(205, 127, 50, 0.7)',
-                        borderColor: 'rgba(205, 127, 50, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Gold 2024',
-                        data: [40, 40], // Add more data for additional countries
-                        backgroundColor: 'rgba(255, 215, 0, 0.3)',
-                        borderColor: 'rgba(255, 215, 0, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Silver 2024',
-                        data: [44, 27], // Add more data for additional countries
-                        backgroundColor: 'rgba(192, 192, 192, 0.3)',
-                        borderColor: 'rgba(192, 192, 192, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Bronze 2024',
-                        data: [22, 24], // Add more data for additional countries
-                        backgroundColor: 'rgba(205, 127, 50, 0.3)',
-                        borderColor: 'rgba(205, 127, 50, 1)',
-                        borderWidth: 1
-                    }
-                ]
+     <script>
+    const ctx = document.getElementById('medalChart').getContext('2d');
+    const medalChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['USA', 'China'], // Add more countries as needed
+            datasets: [
+                {
+                    label: 'Gold 2020',
+                    data: [39, 38], // Add more data for additional countries
+                    backgroundColor: 'rgba(255, 215, 0, 0.7)',
+                    borderColor: 'rgba(255, 215, 0, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Silver 2020',
+                    data: [41, 32], // Add more data for additional countries
+                    backgroundColor: 'rgba(192, 192, 192, 0.7)',
+                    borderColor: 'rgba(192, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Bronze 2020',
+                    data: [33, 18], // Add more data for additional countries
+                    backgroundColor: 'rgba(205, 127, 50, 0.7)',
+                    borderColor: 'rgba(205, 127, 50, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Gold 2024',
+                    data: [40, 40], // Add more data for additional countries
+                    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+                    borderColor: 'rgba(255, 215, 0, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Silver 2024',
+                    data: [44, 27], // Add more data for additional countries
+                    backgroundColor: 'rgba(192, 192, 192, 0.3)',
+                    borderColor: 'rgba(192, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Bronze 2024',
+                    data: [42, 24], // Add more data for additional countries
+                    backgroundColor: 'rgba(205, 127, 50, 0.3)',
+                    borderColor: 'rgba(205, 127, 50, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+            plugins: {
+                datalabels: {
+                    color: '#000',
+                    display: function(context) {
+                        return context.dataset.data[context.dataIndex] > 0;
+                    },
+                    font: {
+                        weight: 'bold'
+                    },
+                    formatter: function(value) {
+                        return value;
+                    },
+                    anchor: 'end',
+                    align: 'top',
+                    offset: 5
                 }
             }
-        });
-    </script>
+        },
+        plugins: [{
+            afterDatasetsDraw: function(chart) {
+                var ctx = chart.ctx;
+                chart.data.datasets.forEach(function(dataset, i) {
+                    var meta = chart.getDatasetMeta(i);
+                    if (!meta.hidden) {
+                        meta.data.forEach(function(element, index) {
+                            // Draw the text in black, with the specified font
+                            ctx.fillStyle = 'rgb(0, 0, 0)';
+                            
+                            var fontSize = 14;
+                            var fontStyle = 'normal';
+                            var fontFamily = 'Helvetica Neue, Helvetica, Arial, sans-serif';
+                            ctx.font = fontStyle + ' ' + fontSize + 'px ' + fontFamily;
+                            
+                            var dataString = dataset.data[index].toString();
+                            
+                            // Make sure alignment settings are correct
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'bottom';
+                            
+                            var padding = 5;
+                            var position = element.tooltipPosition();
+                            ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                        });
+                    }
+                });
+            }
+        }]
+    });
+</script>
 </body>
 </html>
